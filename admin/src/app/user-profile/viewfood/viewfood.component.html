@@ -1,0 +1,36 @@
+<div class="container">
+  <br>
+  <h3 align="center">FOOD DETAILS</h3>
+  <table class="table table-hover">
+    <thead class="thead-dark" align="center">
+      <tr>
+        <th>SLNO</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>PRICE</th>
+        <th>IMAGE</th>
+        <th>CATEGORY_ID</th>
+        <th>OPTIONS</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let food of foods;let i = index">
+      <td style="width:100px" align="center">{{i+1}}</td>
+      <td>{{food.fname}}</td>
+      <td>{{food.fdesc}}</td>
+      <td>{{food.fprice | currency:'INR'}}</td>
+      <td><img [src]="getSafeUrl(food.fpic)" height="100" width="100"></td>
+      <td>{{food.category_id}}</td>
+      <td style="width:100px">
+        <div class="btn-group" role="group" aria-label="options">
+          <a routerLink="../EditFood/{{food._id}}"><button class="btn btn-dark btn-raised" data-toggle="modal"
+              data-target="#details" (click)="fUpdate(f)">EDIT</button></a>
+          <button class="btn btn-danger btn-raised" (click)="onDelete(food._id)">DELETE</button>
+        </div>
+      </td>
+    </tr>
+    <router-outlet></router-outlet>
+  </table>
+</div>
+<br>
+<br>
+<br>

@@ -1,0 +1,23 @@
+<div class="container">
+  <br>
+  <h3 align="center">USER DETAILS</h3>
+  <table class="table table-hover">
+    <thead class="thead-dark" align="center">
+      <tr>
+        <th>SLNO</th>
+        <th>FULLNAME</th>
+        <th>EMAIL</th>
+        <th>PHONE</th>
+        <th>ADDRESS</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let user of users;let i = index" align="center">
+      <td>{{i+1}}</td>
+      <td>{{user.fullName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.address}}</td>
+    </tr>
+    <router-outlet></router-outlet>
+  </table>
+</div>

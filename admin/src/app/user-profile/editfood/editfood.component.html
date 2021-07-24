@@ -1,0 +1,35 @@
+<div class="container">
+  <h3 align="center">UPDATE FOOD</h3>
+  <form #Foodform="ngForm" (ngSubmit)="onEdit(Foodform)" enctype="multipart/form-data">
+    <input class="form-control" class="form-control" type="hidden" name="_id" #_id="ngModel" ngModel
+      [(ngModel)]="selectedFood._id">
+    <div class="form-group">
+      <input class="form-control" type="text" name="fname" #qname="ngModel" ngModel [(ngModel)]="selectedFood.fname"
+        class="form-control" id="inputdefault">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="fdesc" #qname="ngModel" ngModel [(ngModel)]="selectedFood.fdesc"
+        class="form-control" id="inputdefault">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="fprice" #qname="ngModel" ngModel [(ngModel)]="selectedFood.fprice"
+        class="form-control" id="inputdefault">
+    </div>
+    <div class="form-group">
+      <label for="Food">FOOD OLD PIC:</label>
+      <img [src]="getSafeUrl(selectedFood.fpic)" height="100" width="100" style="margin:10px">
+    </div>
+    <div class="form-group">
+      <input type="file" name="photo" class="form-control" id="inputdefault" (change)="onfileselect($event)" />
+    </div>
+    <div class="form-group">
+      <select [(ngModel)]="selectedFood.category_id" name="fooa" class="form-control">
+        <option [selected]="selectedFood.category_id == 'select'" [value]="select">SELECT CATEGORY</option>
+        <option *ngFor="let cat of category" [value]="cat.categoryname">{{cat.categoryname}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="submit" class="form-control btn btn-primary btn-raised" id="inputdefault">
+    </div>
+  </form>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <br>
+  <h3 align="center">BOOKING DETAILS</h3>
+  <table class="table table-hover">
+    <thead class="thead-dark" align="center">
+      <tr>
+        <th>SLNO</th>
+        <th>FNAME</th>
+        <th>FDESC</th>
+        <th>CNAME</th>
+        <th>CEMAIL</th>
+        <th>CPHONE</th>
+        <th>CADDRESS</th>
+        <th>QUAN</th>
+        <th>PRICE</th>
+        <th>DATE</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let o of orders;let i = index">
+      <td>{{i+1}}</td>
+      <td>{{o.fname}}</td>
+      <td>{{o.fdesc}}</td>
+      <td>{{o.cname}}</td>
+      <td>{{o.cemail}}</td>
+      <td>{{o.cphone}}</td>
+      <td>{{o.caddress}}</td>
+      <td>{{o.quan}}</td>
+      <td>{{o.price | currency:'INR'}}</td>
+      <td>{{o.date}}</td>
+    </tr>
+    <router-outlet></router-outlet>
+  </table>
+</div>

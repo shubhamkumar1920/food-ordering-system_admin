@@ -1,0 +1,14 @@
+<div class="container">
+  <h3 align="center">ADD CATEGORY</h3>
+  <form #categoryform="ngForm" (ngSubmit)="onSubmit(categoryform)">
+    <input class="form-control" type="hidden" name="_id" #_id="ngModel" ngModel [(ngModel)]="selectedCategory._id">
+    <div class="form-group">
+      <input type="text" name="category" #qname="ngModel" ngModel [(ngModel)]="selectedCategory.categoryname"
+        class="form-control" id="inputdefault" placeholder="Category Name">
+    </div>
+    <div class="btn-group">
+      <input type="submit" class="btn btn-primary btn-raised" id="inputdefault">
+      <button type="reset" class="btn btn-secondary">RESET</button>
+    </div>
+  </form>
+</div>
