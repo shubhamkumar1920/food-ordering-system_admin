@@ -1,0 +1,29 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="header">Find the best food in {{id|uppercase}}</h1>
+      <p class="header">Order here...</p>
+    </div>
+  </div>
+  <div class="row" align="center">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xs-12" *ngFor="let food of foods">
+      <div class="card text-white bg-dark" style="width: 18.5rem; height: 33rem;">
+        <img class="card-img-top" [src]="getSafeUrl(food.fpic)" alt="{{food.fpic}}">
+        <div class="card-body">
+          <h5 class="card-title">{{food.fname|uppercase}}</h5>
+          <p class="card-text">{{food.fdesc}}...</p>
+          <div class="card-footer" style="color:black;background-color:white;">
+            <div class="container">
+              <div class="row">
+                <div class="col-6" id="cost" style="font-size: 18px">
+                  <b>{{food.fprice | currency:'INR'}}</b>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-primary btn-lg" (click)="onBook(food._id)" style="padding-top: 0"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

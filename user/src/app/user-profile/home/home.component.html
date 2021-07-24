@@ -1,0 +1,16 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron-background">
+    <img src="../../../assets/bg.jpg" class="blur">
+  </div>
+  <div class="container">
+    <h1 class="header" style="color: white">Find the best food in town!</h1>
+    <p class="header" style="color: aquamarine">Order here...</p>
+  </div>
+</div>
+<div class="row" align="center">
+  <div class="col-sm-6 col-md-4 col-lg-3 col-xs-12" *ngFor="let cat of category">
+    <button class="btn btn-dark btn-raised btn-block btn-lg" (click)="onFood(cat.categoryname)" style="width: 18.5rem;">
+      {{cat.categoryname|uppercase}}
+    </button>
+  </div>
+</div>

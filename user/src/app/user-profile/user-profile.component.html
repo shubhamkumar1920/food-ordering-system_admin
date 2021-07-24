@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top justify-content-between">
+  <a class="navbar-brand" routerLink="home"><i class="fas fa-utensils"></i> FOOD SITE</a>
+  <!-- fix the above routerLink...by setting the navbar within the login? -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about">About</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">Category</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" (click)="onFood(cat.categoryname)"
+            *ngFor="let cat of category">{{cat.categoryname|uppercase}}</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <ng-container *ngIf="userDetails; then user; else default"></ng-container>
+      <ng-template #user>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:aquamarine">
+            <i class="fas fa-user"></i> Welcome User:{{userDetails.fullName.split(' ')[0]}}
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="bookhistory">ORDERS</a>
+            <a class="dropdown-item" (click)="onLogout()">LOG OUT</a>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #default>
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:aquamarine">
+            <i class="fas fa-user"></i> Welcome User
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="onLogin()">LOG IN</a>
+          </div>
+        </div>
+      </ng-template>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<br>
+<br>
+<br>
+<br>
+<br>
+<app-footer></app-footer>
